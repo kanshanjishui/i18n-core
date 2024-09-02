@@ -194,6 +194,7 @@ export type HttpsProxyAgentOptions = OriginHttpsProxyAgentOptions
  */
 export type BasicOpenAIConfig = {
   key: string // OpenAI API Key
+  root: string // OpenAI API Root
   model?: string // 使用模型，默认为 gpt-3.5-turbo，当前只兼容Chart模型
   proxy?: HttpsProxyAgentOptions // 代理配置
 } & TranslatorConfig

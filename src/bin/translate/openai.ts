@@ -10,6 +10,8 @@ import {
 const config: BasicOpenAIConfig = {
   key: '',
   proxy: undefined,
+  root: 'https://api.openai.com/v1/chat/completions',
+  model: 'gpt-3.5-turbo',
   from: '',
   to: [],
   delay: 0,
@@ -39,7 +41,7 @@ export async function translateByOpenAI(props: {
   tokens: number // token的长度
 }) {
   const { texts, from, to, tokens } = props
-  const { key, proxy, model = 'gpt-3.5-turbo' } = config
+  const { key, proxy, model = 'gpt-3.5-turbo' , root} = config
 
   const TRANSLATOR_NAME = getTranslatorName('openai')
   const success: Record<string, string> = {}
@@ -53,7 +55,7 @@ export async function translateByOpenAI(props: {
     const content = `Translate the following JSON from ${from} to ${to} and return the translated JSON array only: ${JSON.stringify(
       texts,
     )}`
-    const res: any = await fetch('https://api.openai.com/v1/chat/completions', {
+    const res: any = await fetch(root, {
       method: 'POST',
       data: JSON.stringify({
         model,
