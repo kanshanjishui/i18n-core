@@ -1,0 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.RELATIVE_PATH = exports.CONFIG_NAME = exports.NON_INCREMENTAL = exports.TRANSLATE_ERROR_TEXT = exports.SEPARATOR_STR = exports.SEPARATOR_LENGTH = exports.SEPARATOR = exports.LOG_DIR_NAME = void 0;
+const i18n_1 = require("./i18n");
+global.t = i18n_1.t;
+exports.LOG_DIR_NAME = '.log';
+exports.SEPARATOR = '\n';
+exports.SEPARATOR_LENGTH = 1;
+exports.SEPARATOR_STR = exports.SEPARATOR.repeat(exports.SEPARATOR_LENGTH);
+exports.TRANSLATE_ERROR_TEXT = (0, i18n_1.t)('翻译失败');
+exports.NON_INCREMENTAL = '--non-incremental';
+exports.CONFIG_NAME = 'i18nrc.js';
+exports.RELATIVE_PATH = __filename.endsWith('js') ? '../../../' : '../../';
